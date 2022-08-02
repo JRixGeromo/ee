@@ -1,0 +1,30 @@
+<section class="featured-products-container">
+   <div class="container">
+       <div class="row featured-products-box">
+            <p class="title-block">
+                <strong>Products</strong>
+            </p>
+       </div>
+       <div class="row">
+        <div class="product-slider">
+        <?php $delay = 0; ?>
+            {exp:channel:entries channel="products" status="Open" sort="desc" orderby="{product_order}" dynamic="no"}
+            <div class="product-item text-center wow fadeIn"  data-wow-delay="<?php echo $delay;?>s">
+              <a href="{product_link}">
+               <div class="product-image">
+                    <img src="{product_image}" alt="">       
+               </div>
+                <div class="product-price">
+                    {product_price}
+                </div>
+                <div class="product-buynow">
+                    <button type="button" class="btn btn-primary text-uppercase" autocomplete="off">Buy Now</button>
+                </div>
+              </a>
+            </div> <!-- /product-entry -->
+            <?php $delay+=0.2; ?>
+            {/exp:channel:entries}
+        </div> <!-- /product-slider-->
+       </div> <!-- /row -->
+   </div> <!-- /container -->
+</section>

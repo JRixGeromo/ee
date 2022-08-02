@@ -1,0 +1,59 @@
+<footer class="footer-container">
+    <div class="container">
+       <div class="row footer-links-container">    
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                <div class="footer-links-box">
+					{!-- node_id depends on the Taxonomy structure --}
+                    {embed="_inc/footer-menu" menu_title ="Information" node_id="2"}
+                </div> <!-- /footer-links-box -->
+            </div> <!-- /footer-links-container -->
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                <div class="footer-links-box">
+                    {!-- node_id depends on the Taxonomy structure --}
+                    {embed="_inc/footer-menu" menu_title ="Buying From Us" node_id="7"}
+                </div>
+            </div> <!-- /footer-links-container -->
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 ">
+                <div class="footer-links-box">
+
+{if logged_in}
+
+<p class="title-block">
+<strong>My Account</strong>
+</p>
+
+    <ul class="footer-links">
+<li class="node_15"><a href="{path='member/profile'}">Edit your profile</a></li>
+<li class="node_16"> <a href="{path='logout'}">Log Out</a></li>
+<li class="node_17"><a href="{path='shop/my_orders'}">My Orders</a></li>
+</ul>
+      
+    </ul>
+{/if}
+{if logged_out}
+
+{/if}
+             <!--   {!-- node_id depends on the Taxonomy structure --}
+                    {embed="_inc/footer-menu" menu_title ="My Account" node_id="14"} -->
+                </div>
+            </div> <!-- /footer-links-container -->
+            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                <div class="address-container">
+                   <address>
+                    {exp:channel:entries channel="s4_info" limit="1" dynamic="no" }
+                   <strong class="title-block">{title}</strong>
+                    {cf_company_address}
+                    <p><abbr title="Phone">P:</abbr> <a href="tel:{cf_company_phone_number}" >{cf_company_phone_number}</a></p>
+                    
+                    <a href="mailto:{cf_company_email}">{cf_company_email_message} {cf_company_email}</a>
+                    </p>
+					{/exp:channel:entries}
+                   </address>
+                </div>
+                {!-- ****************************** --}
+                {embed="_inc/social-media-container"}<br>
+				<span style="color:#fff;">&copy; Isis Enterprises LLC.</span>
+            </div> <!-- /footer-links-container-->
+        </div> <!-- /row -->
+    </div> <!-- /container -->
+</footer>

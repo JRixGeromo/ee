@@ -1,0 +1,20 @@
+{!-- 	node_id depends on the Taxonomy structure 
+ 		rollover the name of the parent item and you will see the node_id in the browser's status bar at the bottom
+--}
+<p class="title-block">
+<strong>{embed:menu_title}</strong>
+</p>
+{exp:taxonomy:nav 
+tree_id="1" 
+display_root="no"
+style="linear"
+entry_status="ALL"
+root_node_id="{embed:node_id}"
+}
+
+{if node_level_count == 1}
+    <ul class="footer-links">
+{/if}
+<li class="node_{node_id}{if node_active} active{/if}{if node_active_parent} active_parent{/if}"><a href="{node_url}">{node_title}</a></li>
+{if node_level_count == node_level_total_count}</ul>{/if}
+{/exp:taxonomy:nav}
